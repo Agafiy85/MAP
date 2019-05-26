@@ -68,5 +68,17 @@ function Request() {
         return "<li>" + item.id + " " + item.name + " " + item.email + "</li>";
       });
       list.insertAdjacentHTML("afterbegin", elem.join(" "));
-    });
+    })
+    .then(() => {
+        let itemList = document.querySelectorAll(".list li");
+        console.log(itemList);
+
+        for (let i = 0; i < itemList.length; i++) {
+            itemList[i].addEventListener("click", () => {
+                itemList[i].remove();
+            })
+        }
+    })
+    
 }
+
